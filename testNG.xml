@@ -1,0 +1,15 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="Google.com Website E2E Automation Suite" parallel="none">
+<!--    <listeners>-->
+<!--        <listener class-name="utils.listeners.Listener"/>-->
+<!--    </listeners>-->
+    <test thread-count="5" name="Small World">
+        <parameter name="browser" value="chrome"/>
+        <classes>
+            <class name="runner.TestRunner"/>
+        </classes>
+    </test>
+    <!--  Test  -->
+</suite>
+        <!-- Suite  -->
