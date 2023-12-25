@@ -1,14 +1,11 @@
 package driverManager;
 
-import io.cucumber.java.After;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeClass;
+import org.testng.annotations.*;
 
 
 import java.io.IOException;
@@ -29,7 +26,7 @@ public class DriverFactory {
             System.out.println("Not found");
         }
     }
-    @BeforeClass
+    @BeforeTest
     public void setUp() throws IOException {
         try {
             String browser = PropertyReader.getInstance().readProperty("browser");
@@ -53,16 +50,17 @@ public class DriverFactory {
             }
             driver.manage().window().maximize();
             driver.manage().deleteAllCookies();
+
         }
         catch (Exception e){
             System.out.println(e.getMessage());
         }
-
     }
 
-//    @AfterTest
-//    public void tearDown() {
-//        driver.quit();
-//        driver = null;
-//    }
+    @AfterSuite
+    public static void tearDown() {
+        if (driver != null) {
+            driver.quit();
+        }
+    }
 }
