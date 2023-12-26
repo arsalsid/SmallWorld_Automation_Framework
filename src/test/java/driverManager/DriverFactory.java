@@ -57,10 +57,10 @@ public class DriverFactory {
         }
     }
 
-    @AfterSuite
-    public static void tearDown() {
-        if (driver != null) {
-            driver.quit();
-        }
-    }
+//    @AfterSuite
+//    public static void tearDown() {
+//        if (driver != null) {
+//            driver.quit();
+//        }
+//    }
 }

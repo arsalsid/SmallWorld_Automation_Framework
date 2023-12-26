@@ -5,9 +5,11 @@ import io.cucumber.testng.CucumberOptions;
 import org.testng.annotations.DataProvider;
 
 @CucumberOptions(
-        features = {"src/test/resources/FeatureFile/Checkout.feature"},
-//        tags = "@Checkout",
-        glue = {"stepDefs","Utilities"},
+        features = {"src/test/resources/FeatureFile/Checkout.feature",
+             //   "src/test/resources/FeatureFile/Login.feature"
+        },
+//        tags = "@Login,@Checkout",
+        glue = {"stepDefs","utils"},
         monochrome = true,
         publish = true,
        // dryRun = true,

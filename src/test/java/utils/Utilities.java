@@ -1,6 +1,7 @@
 package utils;
 
 import driverManager.DriverFactory;
+import locators.enumFactory.CheckoutEnum;
 import org.openqa.selenium.*;
 import org.openqa.selenium.io.FileHandler;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -74,6 +75,21 @@ public class Utilities extends DriverFactory {
     public static void waitForElementToBeVisible(String locatorValue) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(100));
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(locatorValue)));
+    }
+
+    public static void calculateTotalAmountToBe(double expectedTotal, CheckoutEnum... productLocators) {
+        double actualTotal = 0.0;
+        double taxAmount = 3.68;
+
+        for (CheckoutEnum locator : productLocators) {
+            WebElement productPriceElement = driver.findElement(locator.getBy());
+            double productPrice = Double.parseDouble(productPriceElement.getText().replaceAll("[^\\d.]+", ""));
+            actualTotal += productPrice;
+        }
+
+        double totalValueAfterTax = actualTotal + taxAmount;
+        Assert.assertEquals(totalValueAfterTax, expectedTotal, "Total amount mismatch");
+        System.out.println("Total Price after including tax is : " +totalValueAfterTax);
     }
 
     public static String takeScreenshot(WebDriver driver, String testName) throws InterruptedException {

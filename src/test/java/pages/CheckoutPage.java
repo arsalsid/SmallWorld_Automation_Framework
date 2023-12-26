@@ -34,4 +34,14 @@ public class CheckoutPage {
         Utilities.assertElementText(CheckoutEnum.VALIDATE_CHECKOUT_INFO_PAGE_LOCATOR.getBy(), "Checkout: Your Information");
         Utilities.clickOn(CheckoutEnum.CLICK_CONTINUE_BTN_LOCATOR.getBy());
     }
+
+    public void validateProductTotalPrice(double expectedTotal){
+        Utilities.calculateTotalAmountToBe(expectedTotal,CheckoutEnum.PRODUCT_ITEM_A_LOCATOR,CheckoutEnum.PRODUCT_ITEM_B_LOCATOR);
+        Utilities.clickOn(CheckoutEnum.FINISH_BTN_LOCATOR.getBy());
+        Utilities.assertElementText(CheckoutEnum.VALIDATE_CHECKOUT_SUCCESS_MSG_LOCATOR.getBy(), "Thank you for your order!");
+        Utilities.clickOn(CheckoutEnum.BACK_TO_HOMEPAGE_BTN_LOCATOR.getBy());
+        Utilities.clickOn(CheckoutEnum.CLICK_ON_BURGER_MENU_LOCATOR.getBy());
+        Utilities.clickOn(CheckoutEnum.CLICK_ON_LOGOUT_BTN_LOCATOR.getBy());
+
+    }
 }

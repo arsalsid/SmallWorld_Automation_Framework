@@ -19,8 +19,6 @@ public class LoginPage {
         Utilities.enterText(LoginEnum.ENTER_USERNAME_LOCATOR.getBy(),userName);
         Utilities.enterText(LoginEnum.ENTER_PASSWORD_LOCATOR.getBy(),password);
         Utilities.clickOn(LoginEnum.CLICK_ON_LOGINBTN_LOCATOR.getBy());
-//        Utilities.clickOn(LoginEnum.CLICK_ON_BURGER_MENU_LOCATOR.getBy());
-//        Utilities.clickOn(LoginEnum.CLICK_ON_LOGOUT_BTN_LOCATOR.getBy());
 
     }
 

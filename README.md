@@ -39,3 +39,8 @@ Including Maven, Extent Reporting and Page Object Model design pattern(POM).
 Method : 001 Go to runner package and execute TestRunner for execution.
 
 Method : 002 Go to root src package and execute testNG.xml file for execution.
+
+
+## TestCase Execution Report Snapshots:
+
+![Execution_Report](images/Execution_Report.png)
